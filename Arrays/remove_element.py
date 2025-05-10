@@ -1,31 +1,16 @@
 #27. Remove Element
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
-        
-        length = len(nums)
-
-        #Check for edge cases, if the array is empty or only has one or two values in it
-
-        l = 0
-        r = length-1
-
-        #Not sure if I should just change this to while true:
-        #Need to put a while here instead of a for
-        while (r >= l):
-
-            #Keep on iterating l until the val is found
-            if (nums[l] != val):
-                l +=1
-
-            #Keep on iterating r until non-val is found
-            elif (nums[r] == val):
-                r -=1
-
-            else:
-                #Do the swap
-                nums[l] = nums[r]
-                l +=1
-                r -=1
-
-        return l
-                
+    def removeElement(nums, val):
+        # Initialize a pointer for the position where non-val elements will be placed
+        k = 0
+    
+    # Iterate through each element in the array
+        for i in range(len(nums)):
+            # If the current element is not the value we want to remove
+            if nums[i] != val:
+                # Place it at position k and increment k
+                nums[k] = nums[i]
+                k += 1
+    
+    # k now represents the length of the array without val elements
+        return k
